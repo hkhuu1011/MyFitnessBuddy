@@ -3,5 +3,5 @@
 @section('content')
     <h1>{{$title}}</h1>
 
-    <p>List of meals here: </p>
+    <p>Add Meals here: </p>
 @endsection
