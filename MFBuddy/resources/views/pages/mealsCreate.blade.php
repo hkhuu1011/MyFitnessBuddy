@@ -3,5 +3,7 @@
 @section('content')
     <h1>{{$title}}</h1>
 
-    <p>Add Meals here: </p>
+    <p>Add Meal here: </p>
+
+
 @endsection

@@ -2,26 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\meals;
 use Illuminate\Http\Request;
+use App\Post;
 
-class MealsController extends Controller
+class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function meals()
+    public function index()
     {
-        $title = 'Meals';
-        return view('pages.meals', compact('title'));
-    }
-
-    public function mealsCreate()
-    {
-        $title = 'Add your Meal';
-        return view('pages.mealsCreate', compact('title'));
+        $posts = Post::all();
+        return view('posts.index')->with('posts',$posts);
     }
 
     /**
@@ -48,21 +42,22 @@ class MealsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\meals  $meals
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(meals $meals)
+    public function show($id)
     {
-        //
+        $post = Post::orderBy('id', 'desc')->get();
+        return view('posts.show')->with('post', $post);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\meals  $meals
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(meals $meals)
+    public function edit($id)
     {
         //
     }
@@ -71,10 +66,10 @@ class MealsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\meals  $meals
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, meals $meals)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,10 +77,10 @@ class MealsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\meals  $meals
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(meals $meals)
+    public function destroy($id)
     {
         //
     }

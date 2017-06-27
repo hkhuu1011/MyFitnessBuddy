@@ -19,11 +19,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/meals', 'MealsController@meals');
-
 Route::get('/meals/create', 'MealsController@mealsCreate');
 
 Route::get('/users/{id}', function($id) {
     return $id;
 });
+
+Route::resource('posts', 'PostsController');
