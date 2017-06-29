@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    Have you eaten today? <a href="/posts/create">Click to add your meal!</a>
                 </div>
             </div>
         </div>

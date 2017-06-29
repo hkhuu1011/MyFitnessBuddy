@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                &nbsp;<li><a href="/">Home</a></li>
+                &nbsp;<li><a href="/home">Home</a></li>
                 <li><a href="/posts/create">Add Meal</a></li>
                 <li><a href="/posts">All Meals</a></li>
             </ul>

@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('name', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('posts.index')->with('posts',$posts);
     }
 
@@ -42,7 +42,12 @@ class PostsController extends Controller
 
         // Create Post
         $post = new Post;
+        $post->name = $request->input('title');
+        $post->user_id = auth()->user()->id;
+        $post->save();
 
+        return redirect('/posts')->with('success', 'Post Created');
+//        return redirect('/posts/{{$post->id}}')->with('success', 'Post Created');
     }
 
     /**
