@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('name', 'desc')->get();
         return view('posts.index')->with('posts',$posts);
     }
 
@@ -25,7 +25,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+
+        // Create Post
+        $post = new Post;
+
     }
 
     /**
@@ -47,7 +53,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Post::orderBy('id', 'desc')->get();
+        $post = Post::find($id);
+//            Post::orderBy('id', 'desc')->get();
         return view('posts.show')->with('post', $post);
     }
 
