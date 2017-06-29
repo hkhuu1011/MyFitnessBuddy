@@ -8,7 +8,18 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    Have you eaten today? <a href="/posts/create">Click to add your meal!</a>
+                    @if(count($posts) > 0)
+                    <table class="table">
+                        Here's what you've eaten today.
+                        @foreach($posts as $post)
+                            <tr>
+                                <th><a href="/posts/{{$post->id}}">{{$post->name}}</a></th>
+                            </tr>
+                        @endforeach
+                    </table>
+                    @else
+                        Have you eaten today? <a href="/posts/create">Click to add your meal!</a>
+                    @endif
                 </div>
             </div>
         </div>
