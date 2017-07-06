@@ -13,7 +13,9 @@
                         Here's what you've eaten today.
                         @foreach($posts as $post)
                             <tr>
-                                <th><a href="/posts/{{$post->id}}">{{$post->name}}</a></th>
+                                <th><a href="/posts/{{$post->id}}">{{$post->name}}</a>
+                                <medium class="pull-right">{{$post->created_at}}</medium>
+                                </th>
                             </tr>
                         @endforeach
                     </table>
